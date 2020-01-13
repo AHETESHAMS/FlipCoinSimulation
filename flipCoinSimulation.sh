@@ -1,38 +1,66 @@
 #!/bin/bash -x
 declare -A results
-doubleHead=0
-doubleTail=0
-headTail=0
-tailHead=0
+tripleHead=0
+tripleTail=0
+headTailTail=0
+tailHeadTail=0
+tailTailHead=0
+tailHeadHead=0
+headTailHead=0
+headHeadTail=0
 i=0
 while [ $i  -lt 10 ]
 do
-	randomCheck=$((RANDOM%4))
+	randomCheck=$((RANDOM%7))
 	echo $randomCheck
 	if [[ $randomCheck -eq 0 ]]
 	then
-		(( doubleHead++ ))
-		results[HH]=$doubleHea
+		(( tripleHead++ ))
+		results[HHH]=$tripleHead
 	elif [[ $randomCheck -eq 1 ]]
 	then
-   	(( doubleTail++ ))
-		results[TT]=$doubleTail 
+   	(( tripleTail++ ))
+		results[TTT]=$tripleTail 
 	elif [[ $randomCheck -eq 2 ]]
 	then
-		(( headTail++ ))
-		results[HT]=$headTail
+		(( headTailTail++ ))
+		results[HTT]=$headTailTail
+	elif [[ $randomCheck -eq 3 ]]
+	then
+		(( tailHeadTail++ ))
+		results[THT]=$tailHeadTail
+	elif [[ $randomCheck -eq 4 ]]
+	then
+		 (( tailTailHead++ ))
+		 results[TTH]=$tailTailHead
+	elif [[ $randomCheck -eq 5 ]]
+	then
+		(( tailHeadHead++ ))
+		 results[THH]=$tailHeadHead
+	elif [[ $randomCheck -eq 6 ]]
+	then
+		(( headTailHead++ ))
+		results[HTH]=$headTailHead
 	else
-		(( tailHead++ ))
-		results[TH]=$tailHead
+		(( headHeadTail++ ))
+		results[HHT]=$headHeadTail			
 	fi;
 	(( i++ ))
 done
-percentageOfDoubleHead=$(( doubleHead*100/10 ))
-percentageOfDoubleTail=$(( doubleTail*100/10 ))
-percentageOfHeadTail=$(( headTail*100/10 ))
-percentageOfTailHead=$(( tailHead*100/10 ))
-echo "Percentage Of Head Head is "$percentageOfDoubleHead
-echo "Percentage Of Tail Tail is "$percentageOfDoubleTail
-echo "Percentage Of Head Tail is "$percentageOfHeadTail
-echo "Percentage Of Tail Head is "$percentageOfTailHead
+percentageOfTripleHead=$(( tripleHead*100/10 ))
+percentageOftripleTail=$(( tripleTail*100/10 ))
+percentageOfheadTailTail=$(( headTailTail*100/10 ))
+percentageOftailHeadTail=$(( tailHeadTail*100/10 ))
+percentageOftailTailHead=$(( tailTailHead*100/10 ))
+percentageOftailHeadHead=$(( tailHeadHead*100/10 ))
+percentageOfheadTailHead=$(( headTailHead*100/10 ))
+percentageOfheadHeadTail=$(( headHeadTail*100/10 ))
+echo "Percentage Of Tail Tail Tail is "$percentageOfTripleHead
+echo "Percentage Of Head Head Head is "$percentageOftripleTail
+echo "Percentage Of is Head Tail Tail"$percentageOfheadTailTail
+echo "Percentage Of Tail Head Tail is"$percentageOftailHeadTail
+echo "Percentage Of Tail Tail Head is "$percentageOftailTailHead
+echo "Percentage Of Tail Head Head is "$percentageOftailHeadHead
+echo "Percentage Of Head Tail Head is "$percentageOfheadTailHead
+echo "Percentage Of Head Head Tail is "$percentageOfheadHeadTail
 
